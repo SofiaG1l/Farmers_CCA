@@ -1,0 +1,131 @@
+Type,Subgroup,Vocabulary
+theoretical framework,conceptual framework,conceptual framework
+theoretical framework,analytical framework,analytical framework
+theoretical framework,theoretical framework,theoretical framework
+theoretical framework,integrated framework,integrated framework
+literature review,literature review,scoping review
+literature review,literature review,systematic review
+literature review,literature review,literature review
+literature review,literature review,umbrella review
+literature review,literature review,meta(-|\s|)analysis
+qualitative,approach,action research
+qualitative,analysis,content analysis
+qualitative,analysis,discourse analysis
+qualitative,approach,ethnography
+qualitative,method,focus group
+qualitative,approach,grounded theory
+qualitative,method,interview
+qualitative,approach,narrative research
+qualitative,approach,phenomenological research
+qualitative,approach,qualitative
+qualitative,method,secondary research
+qualitative,analysis,textual analysis
+qualitative,analysis,thematic analysis
+quantitative,model,accelerated failure time
+quantitative,register,administrative record
+quantitative,model,agent(-|\s)based(-|\s)
+quantitative,model,age(-|\s)period(-|\s)cohort
+quantitative,analysis,analysis of variance
+quantitative,analysis,variance analysis
+quantitative,model,ancova
+quantitative,analysis,anova
+quantitative,model,arima model
+quantitative,model,autoregressive integrated moving average
+quantitative,survey,baseline
+quantitative,bayesian,bayesian
+quantitative,register,birth record
+quantitative,census,census
+quantitative,register,civil registration
+quantitative,clustering,cluster analysis
+quantitative,data reduction,correspondence analysis
+quantitative,model,cox(-|\s)model
+quantitative,regression,cox(-|\s)regression
+quantitative,register,death record
+quantitative,regression,difference(-|\s)in(-|\s)difference
+quantitative,data reduction,discriminant analysis
+quantitative,data reduction,factorial analysis
+quantitative,register,fiscal data
+quantitative,model,fixed(-|\s)effect(s|) model
+quantitative,model,generalized(-|\s)additive model
+quantitative,model,generalized(-|\s)linear model
+quantitative,multivariate descriptive,geometric(-|\s)data analysis
+quantitative,modern,gibbs(-|\s)sampler
+quantitative,modern,gibbs(-|\s)sampling
+quantitative,model,hazard model
+quantitative,model,hierarchical model
+quantitative,model,individual(-|\s)based model
+quantitative,analysis,instrumental(-|\s)variable
+quantitative,regression,lasso
+quantitative,clustering,latent(-|\s)class analysis
+quantitative,model,linear model
+quantitative,model,linear(-|\s)probability model
+quantitative,regression,linear(-|\s)regression
+quantitative,model,logistic model
+quantitative,regression,logistic(-|\s)regression
+quantitative,model,logit model
+quantitative,model,log(-|\s)linear model
+quantitative,model,log(-|\s)log model
+quantitative,modern,machine learning
+quantitative,analysis,manova
+quantitative,modern,markov chain
+quantitative,modern,mcmc
+quantitative,modern,markov chain monte carlo
+quantitative,model,microsimulation
+quantitative,model,mixed(-|\s)effects model
+quantitative,evidence,model
+quantitative,clustering,model(-|\s)based cluster analysis
+quantitative,model,multi(-|\s)agent
+quantitative,model,multi(-|\s)agent(-|\s)based modeling
+quantitative,model,multi(-|\s|)level model
+quantitative,model,multi(-|\s|)level regression model
+quantitative,model,multinomial(-|\s)logistic regression
+quantitative,model,multinomial(-|\s)model
+quantitative,model,multinomial(-|\s)regression model
+quantitative,data reduction,multiple(-|\s)correspondence analysis
+quantitative,data reduction,multiple(-|\s)factorial analysis
+quantitative,multivariate descriptive,multivariate descriptive statistics
+quantitative,model,multivariate model
+quantitative,model,negative(-|\s)binomial model
+quantitative,model,nested model
+quantitative,modern,network analysis
+quantitative,modern,neural network
+quantitative,regression,non(-|\s|)parametric regression
+quantitative,register,official statistic
+quantitative,model,ologit
+quantitative,analysis,ols
+quantitative,modern,optimal matching
+quantitative,model,ordered logit
+quantitative,regression,ordinary(-|\s)least(-|\s)squares regression
+quantitative,survey,panel data
+quantitative,survey,panel survey
+quantitative,model,poisson model
+quantitative,regression,poisson regression
+quantitative,data reduction,principal component analysis
+quantitative,model,probit model
+quantitative,regression,probit regression
+quantitative,analysis,propensity(-|\s)score(-|\s)matching
+quantitative,model,proportional(-|\s)hazard model
+quantitative,model,qualitative(-|\s)comparative analysis
+quantitative,regression,quantile(-|\s)regression
+quantitative,quantiative,quantitative
+quantitative,model,random(-|\s)effect(s|) model
+quantitative,sample,random sample
+quantitative,analysis,randomized(-|\s|)control trial
+quantitative,register,register data
+quantitative,regression,regression
+quantitative,regression,regression analysis
+quantitative,regression,regression discontinuity
+quantitative,model,regression model
+quantitative,regression,ridge(-|\s)regression
+quantitative,regression,robust(-|\s)regression
+quantitative,model,sars model
+quantitative,modern,sequence analysis
+quantitative,modern,simulation
+quantitative,analysis,species(-|\s)area relationship model
+quantitative,survey,survey
+quantitative,analysis,survival analysis
+quantitative,model,time(-|\s)series model
+quantitative,model,tobit
+quantitative,register,vital(-|\s)statistic
+quantitative,model,zero(-|\s)inflated(-|\s)negative(-|\s)binomial model
+quantitative,model,zero(-|\s)inflated(-|\s)poisson model

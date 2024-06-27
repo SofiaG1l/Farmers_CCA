@@ -1,0 +1,38 @@
+Natural_Disaster,Hazard
+natural hazards,off(\s|\-|)season frost
+natural hazards,salinisation
+natural hazards,salinization
+natural hazards,salinification
+natural hazards,salinity intrusion
+natural hazards,desertification
+natural hazards,natural(\s|\-|)hazard[a-z]*
+hydro-meteorological disaster,avalanch[a-z]*
+hydro-meteorological disaster,cold(\s|-|)spell[a-z]*
+hydro-meteorological disaster,dry(\s|-|)spell[a-z]*
+hydro-meteorological disaster,drought[a-z]*
+geophysical disaster,eartquake[a-z]*
+hydro-meteorological disaster,epidemic[a-z]*
+geophysical disaster,eruption[a-z]* [a-z]* volcanic
+hydro-meteorological disaster,extreme precipitation[a-z]*
+hydro-meteorological disaster,precipitation[a-z]* varia[a-z]*
+hydro-meteorological disaster,extreme temperature[a-z]*
+hydro-meteorological disaster,extreme heat[a-z]*
+hydro-meteorological disaster,extreme cold[a-z]*
+hydro-meteorological disaster,famin[a-z]*
+hydro-meteorological disaster,fire[a-z]*
+hydro-meteorological disaster,flood[a-z]*
+hydro-meteorological disaster,hail[a-z]*
+hydro-meteorological disaster,hurrican[a-z]*
+hydro-meteorological disaster,landslide[a-z]*
+geophysical disaster,rise[a-z]* [a-z]* sea(\s|\-|)level
+geophysical disaster,sea(\s|\-|)level rise[a-z]*
+geophysical disaster,ris[a-z]* ocean[a-z]* temperatur[a-z]*
+geophysical disaster,ocean[a-z]* acidification
+geophysical disaster,"los[a-z]* ([a-z\s]*)^{0,1}artic ([a-z\s]*)^{0,1}ice[a-z]*"
+geophysical disaster,"artic ([a-z\s]*)^{0,1}ice[a-z]* los[a-z]*"
+hydro-meteorological disaster,storm[a-z]*
+hydro-meteorological disaster,tornado[a-z]*
+hydro-meteorological disaster,tropical(\s|-|)storm[a-z]*
+hydro-meteorological disaster,typhoon[a-z]*
+geophysical disaster,volcanic eruption[a-z]*
+hydro-meteorological disaster,windstorm[a-z]*

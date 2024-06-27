@@ -1,0 +1,182 @@
+Variable,Type_Adaptation,Category,Adaptation_Strategy,Adaptation_Strategy_RGX
+Adaptation_Type,Incremental,crop management,Crop Changing,"adapt[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Changing,"chang[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Changing,chang[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Changing,crop chang[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Diversification,"diversif[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Diversification,diversif[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Diversification,crop[a-z]* diversif[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Diversification,"crop[a-z]* [[a-z]*\s{0,1}]{0,1}diversif[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Diversification,resist[a-z]* crop variet[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Improving,"crop[a-z]* [[a-z]*\s{0,1}]{0,1}tolerant"
+Adaptation_Type,Incremental,crop management,Crop Improving,"improv[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Improving,"tolerant [[a-z]*\s{0,1}]{0,1}crop[a-z]* "
+Adaptation_Type,Incremental,crop management,Crop Improving,"crop[a-z]* [[a-z]*\s{0,1}]{0,1}resistant[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Improving,"resistant[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Improving,crop[a-z]* improv[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Improving,"improv[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Improving,improv[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Intercrop,"intercrop[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Intercrop,intercrop[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Rotation,"rotat[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Crop Rotation,rotat[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Crop Rotation,crop[a-z]* rotat[a-z]*
+Adaptation_Type,Incremental,crop management,Mixed Crop,"mix[a-z]* [[a-z]*\s{0,1}]{0,1}crop[a-z]*"
+Adaptation_Type,Incremental,crop management,Mixed Crop,mix[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Multiple Crop,multiple crop[a-z]*
+Adaptation_Type,Incremental,crop management,Organic Fertilizer,"us[a-z]* [[a-z]*\s{0,1}]{0,1}organic(-|\s|)fertilizer[a-z]*"
+Adaptation_Type,Incremental,crop management,Organic Fertilizer,us[a-z]* organic(-|\s|)fertilizer[a-z]*
+Adaptation_Type,Incremental,crop management,Organic Insecticide,"us[a-z]* [[a-z]*\s{0,1}]{0,1}organic(-|\s|)insecticid[a-z]*"
+Adaptation_Type,Incremental,crop management,Organic Insecticide,us[a-z]* organic(-|\s|)insecticid[a-z]*
+Adaptation_Type,Incremental,crop management,Organic Pesticide,"us[a-z]* [[a-z]*\s{0,1}]{0,1}organic(-|\s|)pesticid[a-z]*"
+Adaptation_Type,Incremental,crop management,Organic Pesticide,us[a-z]* organic(-|\s|)pesticid[a-z]*
+Adaptation_Type,Incremental,crop management,Organic Reutilizer,"us[a-z]* [[a-z]*\s{0,1}]{0,1}organic bio(-|\s|)retilizer[a-z]*"
+Adaptation_Type,Incremental,crop management,Organic Reutilizer,us[a-z]* organic bio(-|\s|)retilizer[a-z]*
+Adaptation_Type,Incremental,crop management,Plant Rescheduling,"reschedul[a-z]* [[a-z]*\s{0,1}]{0,1}plant[a-z]*"
+Adaptation_Type,Incremental,crop management,Plant Rescheduling,reschedul[a-z]* plant[a-z]*
+Adaptation_Type,Incremental,crop management,Plant Rescheduling,plant[a-z]* date
+Adaptation_Type,Incremental,crop management,Seed Improving,"improv[a-z]* [[a-z]*\s{0,1}]{0,1}seed[a-z]*"
+Adaptation_Type,Incremental,crop management,Seed Improving,improv[a-z]* seed[a-z]*
+Adaptation_Type,Incremental,crop management,Seed Improving,seed[a-z]* improv[a-z]*
+Adaptation_Type,Incremental,crop management,Short Duration Crop,short dur[a-z]* crop[a-z]*
+Adaptation_Type,Incremental,crop management,Short Duration Crop,short dur[a-z]* seed[a-z]*
+Adaptation_Type,Transformational,crop management,Accommodation Changing,"chang[a-z]* [[a-z]*\s{0,1}]{0,1}accommodation"
+Adaptation_Type,Transformational,crop management,Accommodation Changing,accommodation chang[a-z]*
+Adaptation_Type,Transformational,crop management,Accommodation Changing,chang[a-z]* accommodation
+Adaptation_Type,Transformational,crop management,Farm Relocation,farm relocation
+Adaptation_Type,Transformational,crop management,Farm Relocation,"chang[a-z]* [[a-z]*\s{0,1}]{0,1}farm[a-z]* location"
+Adaptation_Type,Transformational,crop management,Farm Relocation,chang[a-z]* farm[a-z]* location
+Adaptation_Type,Transformational,crop management,Farm Relocation,"relocat[a-z]* [[a-z]*\s{0,1}]{0,1}farm[a-z]*"
+Adaptation_Type,Transformational,crop management,Farm Relocation,relocat[a-z]* farm[a-z]*
+Adaptation_Type,Transformational,crop management,Farm Relocation,"relocat[a-z]* [[a-z]*\s{0,1}]{0,1}accommodation"
+Adaptation_Type,Transformational,crop management,Farm Relocation,relocat[a-z]* accommodation
+Adaptation_Type,Incremental,farm management,Agro Forestry,agro(-|\s|)forest[a-z]*
+Adaptation_Type,Incremental,farm management,Homestead Gardening,homestead garden[a-z]*
+Adaptation_Type,Incremental,farm management,Indoor Farming,indoor(-|\s|)farm[a-z]*
+Adaptation_Type,Incremental,farm management,Insurance,insurance[a-z]*
+Adaptation_Type,Incremental,farm management,Level Landing,level[a-z]* land[a-z]*
+Adaptation_Type,Incremental,farm management,Level Landing,land[a-z]* level[a-z]*
+Adaptation_Type,Incremental,farm management,Soil Conservation,ecosystem restor[a-z]*
+Adaptation_Type,Incremental,farm management,Soil Conservation,"conserv[a-z]* [[a-z]*\s{0,1}]{0,1}soil"
+Adaptation_Type,Incremental,farm management,Soil Conservation,conserv[a-z]* soil
+Adaptation_Type,Incremental,farm management,Soil Conservation,soil conserv[a-z]*
+Adaptation_Type,Incremental,farm management,Soil Conservation,"soil [[a-z]*\s{0,1}]{0,1}conserv[a-z]*"
+Adaptation_Type,Incremental,farm management,Soil Conservation,"sustain[a-z]* soil [[a-z]*]{0,1}"
+Adaptation_Type,Transformational,farm management,Dry Farming,dry(-|\s|)farm[a-z]*
+Adaptation_Type,Transformational,farm management,Land Reduction,"reduc[a-z]* [[a-z]*\s{0,1}]{0,1}land[a-z]*"
+Adaptation_Type,Transformational,farm management,Land Reduction,"reduc[a-z]* [[a-z]*\s{0,1}]{0,1}farm(-|\s|)land[a-z]*"
+Adaptation_Type,Transformational,farm management,Land Reduction,land[a-z]* reduc[a-z]*
+Adaptation_Type,Transformational,farm management,Organic Farming,organic(-|\s|)farm[a-z]*
+Adaptation_Type,Transformational,farm management,Organic Farming,"crop[a-z]* [[a-z]*\s{0,1}]{0,1}mulch[a-z]*"
+Adaptation_Type,Transformational,farm management,Orchard Farming,orchard[a-z]* farm[a-z]*
+Adaptation_Type,Transformational,farm management,Aquaculture,aquacultur[a-z]*
+Adaptation_Type,Transformational,farm management,Aquaculture,fishing activit[a-z]*
+Adaptation_Type,Transformational,farm management,Tree Planting,"plant[a-z]* [[a-z]*\s{0,1}]{0,1}tree[a-z]*"
+Adaptation_Type,Transformational,farm management,Tree Planting,tree[a-z]* plant[a-z]*
+Adaptation_Type,Incremental,financial management,Borrowing from formal sources,commercial bank[a-z]*
+Adaptation_Type,Incremental,financial management,Borrowing from formal sources,cooperative societ[a-z]*
+Adaptation_Type,Incremental,financial management,Borrowing from informal sources,money lender[a-z]*
+Adaptation_Type,Incremental,financial management,Borrowing from informal sources,lend[a-z]* mone[a-z]*
+Adaptation_Type,Incremental,financial management,Borrowing from informal sources,friend[a-z]* lend[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,income generating activit[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,"income [[a-z]*\s{0,1}]{0,1}divers[a-z]*"
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,"divers[a-z]* [[a-z]*\s{0,1}]{0,1}income"
+Adaptation_Type,Incremental,financial management,Loan Taking,tak[a-z]* loan[a-z]*
+Adaptation_Type,Incremental,financial management,Loan Taking,"tak[a-z]* [[a-z]*\s{0,1}]{0,1}loan[a-z]*"
+Adaptation_Type,Incremental,financial management,Loan Taking,loan[a-z]* tak[a-z]*
+Adaptation_Type,Incremental,financial management,Reduce Household Expenses,"reduc[a-z]* [[a-z]*\s{0,1}]{0,1}household expen[a-z]*"
+Adaptation_Type,Incremental,financial management,Reduce Household Expenses,reduc[a-z]* household expen[a-z]*
+Adaptation_Type,Incremental,financial management,Reduce Household Expenses,household expen[a-z]* reduc[a-z]*
+Adaptation_Type,Incremental,financial management,Savings,rel[a-z]* on saving[a-z]*
+Adaptation_Type,Incremental,financial management,Savings,saving[a-z]* rel[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,off(-|\s|)farm income
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,non(-|\s|)farm[a-z]* activit[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,alternative(-|\s|)farm[a-z]* activit[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,off(-|\s|)agricult[a-z]* income
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,non(-|\s|)agricult[a-z]* activit[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,alternative(-|\s|)agricult[a-z]* activit[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,non(-|\s|)farm[a-z]* incom[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,alternative(-|\s|)farm[a-z]* incom[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,non(-|\s|)agricult[a-z]* incom[a-z]*
+Adaptation_Type,Transformational,financial management,Alternative Income Activity,alternative(-|\s|)agricult[a-z]* incom[a-z]*
+Adaptation_Type,Transformational,financial management,Livestock Possessing,livestock variet[a-z]*
+Adaptation_Type,Transformational,financial management,Livestock Possessing,livestock poss[a-z]*
+Adaptation_Type,Transformational,financial management,Livestock Possessing,livestock produc[a-z]*
+Adaptation_Type,Both,General,Climate Change Adaptation,privat[a-z]* adapt[a-z]*
+Adaptation_Type,Both,General,Climate Change Adaptation,"succes[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"succes[a-z]* [[a-z]*\s{0,1}]{0,1}adopt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"intensi[a-z]* [[a-z]*\s{0,1}]{0,1}adopt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"intensi[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"barrier[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"proba[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"adop[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,"climat[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,adapt[a-z]* climat[a-z]*
+Adaptation_Type,Both,General,Climate Change Adaptation,"adapt[a-z]* [[a-z]*\s{0,1}]{0,1}climat[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,(?:^|\W)CCA
+Adaptation_Type,Both,General,Climate Change Adaptation,farm[a-z]* adapt[a-z]*
+Adaptation_Type,Both,General,Climate Change Adaptation,"farm[a-z]* [[a-z]*\s{0,1}]{0,1}adapt[a-z]*"
+Adaptation_Type,Both,General,Climate Change Adaptation,farm[a-z]* adopt[a-z]*
+Adaptation_Type,Incremental,General,Climate Change Adaptation,incremental[a-z]* adapt[a-z]*
+Adaptation_Type,Transformational,General,Climate Change Transformational Adaptation,transformatio[a-z]* adapt[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Harvest Rainwater,"harvest[a-z]* [[a-z]*\s{0,1}]{0,1}rain(-|\s|)water"
+Adaptation_Type,Incremental,irrigation and water management,Harvest Rainwater,harvest[a-z]* rain(-|\s|)water
+Adaptation_Type,Incremental,irrigation and water management,Harvest Rainwater,rain(-|\s|)water harvest[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Irrigation System,stone bund[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Irrigation System,lift[a-z]* irrigation
+Adaptation_Type,Incremental,irrigation and water management,Irrigation System,drip[a-z]* irrigation
+Adaptation_Type,Incremental,irrigation and water management,Irrigation System,irrigation[a-z]* system[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,"conserv[a-z]* [[a-z]*\s{0,1}]{0,1}water[a-z]*"
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,water[a-z]* conserv[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,water[a-z]*(-|\s)sav[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,"conserv[a-z]* [[a-z]*\s{0,1}]{0,1}water[a-z]* resourc[a-z]*"
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,conserv[a-z]* water[a-z]* resourc[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,"reduc[a-z]* [[a-z]*\s{0,1}]{0,1}water[a-z]* consumption[a-z]*"
+Adaptation_Type,Incremental,irrigation and water management,Water Conservation,reduc[a-z]* water[a-z]* consumption[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Pipe,water[a-z]* pipe[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Pump,water[a-z]* pump[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,"extend[a-z]* [[a-z]*\s{0,1}]{0,1}water[a-z]* suppl[a-z]*"
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,extend[a-z]* water[a-z]* suppl[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,water[a-z]* suppl[a-z]* extend[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,"maintain[a-z]* [[a-z]*\s{0,1}]{0,1}water[a-z]* suppl[a-z]*"
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,maintain[a-z]* water[a-z]* suppl[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,water[a-z]* suppl[a-z]* maintain[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,"reserv[a-z]* [[a-z]*\s{0,1}]{0,1}water[a-z]* suppl[a-z]*"
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,reserv[a-z]* water[a-z]* suppl[a-z]*
+Adaptation_Type,Incremental,irrigation and water management,Water Supply,water[a-z]* suppl[a-z]* reserv[a-z]*
+Adaptation_Type,Incremental,Physical Infrastructure Management,Farm Infrastructure,"improv[a-z]* [[a-z]*\s{0,1}]{0,1}infrastructur[a-z]*"
+Adaptation_Type,Incremental,Physical Infrastructure Management,Farm Infrastructure,improv[a-z]* infrastructur[a-z]*
+Adaptation_Type,Incremental,Physical Infrastructure Management,Farm Infrastructure,infrastructur[a-z]* improv[a-z]*
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Infrastructure,"farm[a-z]* [[a-z]*\s{0,1}]{0,1}infrastructur[a-z]*"
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Infrastructure,farm[a-z]* infrastructur[a-z]*
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Infrastructure,"build[a-z]* [[a-z]*\s{0,1}]{0,1}infrastructur[a-z]*"
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Infrastructure,build[a-z]* infrastructur[a-z]*
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Infrastructure,infrastructur[a-z]* build[a-z]*
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Technology,technolog[a-z]* use[a-z]*
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Technology,"use[a-z]* [[a-z]*\s{0,1}]{0,1}technolog[a-z]*"
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Technology,"farm[a-z]* [[a-z]*\s{0,1}]{0,1}technolog[a-z]*"
+Adaptation_Type,Transformational,Physical Infrastructure Management,Farm Technology,farm[a-z]* technolog[a-z]*
+Adaptation_Type,Incremental,social activities,Barter,barter[a-z]*
+Adaptation_Type,Incremental,social activities,Food Exchanging,"exchang[a-z]* [[a-z]*\s{0,1}]{0,1}food"
+Adaptation_Type,Incremental,social activities,Food Exchanging,exchang[a-z]* food
+Adaptation_Type,Incremental,social activities,Food Exchanging,food exchang[a-z]*
+Adaptation_Type,Incremental,social activities,Information Sharing,exchan[a-z]* information
+Adaptation_Type,Incremental,social activities,Information Sharing,information shar[a-z]*
+Adaptation_Type,Incremental,social activities,Information Sharing,"shar[a-z]* [[a-z]*\s{0,1}]{0,1}information"
+Adaptation_Type,Incremental,social activities,Information Sharing,shar[a-z]* information
+Adaptation_Type,Incremental,social activities,Receive Information,"receiv[a-z]* [[a-z]*\s{0,1}]{0,1}information"
+Adaptation_Type,Incremental,social activities,Receive Information,receiv[a-z]* information
+Adaptation_Type,Incremental,social activities,Receive Information,information receiv[a-z]*
+Adaptation_Type,Incremental,social activities,Resource Exchanging,"exchang[a-z]* [[a-z]*\s{0,1}]{0,1}resourc[a-z]*"
+Adaptation_Type,Incremental,social activities,Resource Exchanging,exchang[a-z]* resourc[a-z]*
+Adaptation_Type,Incremental,social activities,Resource Exchanging,resourc[a-z]* exchang[a-z]*
+Adaptation_Type,Incremental,social activities,Seed Exchanging,"exchang[a-z]* [[a-z]*\s{0,1}]{0,1}seed[a-z]*"
+Adaptation_Type,Incremental,social activities,Seed Exchanging,exchang[a-z]* seed[a-z]*
+Adaptation_Type,Incremental,social activities,Seed Exchanging,seed[a-z]* exchang[a-z]*
+Adaptation_Type,Transformational,social activities,Local Knowledge,local[a-z]* knowledge
+Adaptation_Type,Transformational,social activities,Migration,movement[a-z]* people
+Adaptation_Type,Transformational,social activities,Migration,people move[a-z]*
+Adaptation_Type,Transformational,social activities,Migration,(?:^|\W)relocation
+Adaptation_Type,Transformational,social activities,Migration,migration
+Adaptation_Type,Transformational,social activities,Migration,migrant[a-z]*
+Adaptation_Type,Transformational,social activities,Traditional Knowledge,tradition[a-z]* knowledge
