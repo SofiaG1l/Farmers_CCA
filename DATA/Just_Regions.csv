@@ -1,33 +1,36 @@
 ﻿Sub_Region,Intermediate_Region,Intermediate_Region_lower
-Europe,Europ[a-z]*,europ[a-z]*
-Asia,Asia[a-z]*,asia[a-z]*
-Oceania,Oceania[a-z]*,oceania[a-z]*
-Africa,Africa[a-z]*,africa[a-z]*
-Antarctica,Antarctica,antarctica
-Central Asia,Centr[a-z]*(\s|-|)Asia,centr[a-z]*(\s|-|)asia
-Eastern Asia,East[a-z]*(\s|-|)Asia,east[a-z]*(\s|-|)asia
-Eastern Europe,East[a-z]*(\s|-|)Europe,east[a-z]*(\s|-|)europe
-Latin America and the Caribbean,Caribbean,caribbean
-Latin America and the Caribbean,Centr[a-z]*(\s|-|)America,centr[a-z]*(\s|-|)america
-Latin America and the Caribbean,South[a-z]*(\s|-|)America,south[a-z]*(\s|-|)america
-Latin America and the Caribbean,Latin America,latin america
-Latin America and the Caribbean,(?:^|\W)LAC,(?:^|\W)lac
-Melanesia,Melanesia,melanesia
-Small Island States,Small[a-z]* Island[a-z]*,small[a-z]* island[a-z]*
-Micronesia,Micronesia,micronesia
-Northern Africa,North[a-z]*(\s|-|)Africa,north[a-z]*(\s|-|)africa
-Northern America,North[a-z]*(\s|-|)America,north[a-z]*(\s|-|)america
-Northern Europe,Channel Island(s|),channel island(s|)
-Northern Europe,North[a-z]*(\s|-|)Europe,north[a-z]*(\s|-|)europe
-Polynesia,Polynesia,polynesia
-South-eastern Asia,South(\s|-|)east[a-z]*(\s|-|)Asia,south(\s|-|)east[a-z]*(\s|-|)asia
-Southern Asia,South[a-z]*(\s|-|)Asia,south[a-z]*(\s|-|)asia
-Southern Europe,South[a-z]*(\s|-|)Europe,south[a-z]*(\s|-|)europe
-Sub-Saharan Africa,(?:^|\W)SSA,(?:^|\W)ssa
-Sub-Saharan Africa,Sub(\s|-|)Saharan(\s|-|)Africa,sub(\s|-|)saharan(\s|-|)africa
-Sub-Saharan Africa,East[a-z]*(\s|-|)Africa,east[a-z]*(\s|-|)africa
-Sub-Saharan Africa,Middle(\s|-|)Africa,middle(\s|-|)africa
-Sub-Saharan Africa,South[a-z]*(\s|-|)Africa,south[a-z]*(\s|-|)africa
-Sub-Saharan Africa,West[a-z]*(\s|-|)Africa,west[a-z]*(\s|-|)africa
-Western Asia,West[a-z]*(\s|-|)Asia,west[a-z]*(\s|-|)asia
-Western Europe,West[a-z]*(\s|-|)Europe,west[a-z]*(\s|-|)europe
+Africa,africa[a-z]*,africa[a-z]*
+Alaska,alask[a-z]*,alask[a-z]*
+Antarctica,antarctic[a-z]*,antarctic[a-z]*
+Asia,asia[a-z]*,asia[a-z]*
+Congo Basin,congo basin,congo basin
+Central Asia,centr[a-z]*(\s|-|)asia,centr[a-z]*(\s|-|)asia
+Eastern Asia,east[a-z]*(\s|-|)asia,east[a-z]*(\s|-|)asia
+Eastern Europe,east[a-z]*(\s|-|)europe,east[a-z]*(\s|-|)europe
+Europe,europ[a-z]*,europ[a-z]*
+Latin America and the Caribbean,caribbean,caribbean
+Latin America and the Caribbean,centr[a-z]*(\s|-|)america,centr[a-z]*(\s|-|)america
+Latin America and the Caribbean,south[a-z]*(\s|-|)america,south[a-z]*(\s|-|)america
+Latin America and the Caribbean,latin america,latin america
+Latin America and the Caribbean,(?:^|\w)lac,(?:^|\W)lac
+Mediterranean,mediterran[a-z]*,mediterran[a-z]*
+Melanesia,melanesia,melanesia
+Micronesia,micronesia,micronesia
+Northern Africa,north[a-z]*(\s|-|)africa,north[a-z]*(\s|-|)africa
+Northern America,north[a-z]*(\s|-|)america,north[a-z]*(\s|-|)america
+Northern Europe,channel island(s|),channel island(s|)
+Northern Europe,north[a-z]*(\s|-|)europe,north[a-z]*(\s|-|)europe
+Oceania,oceania[a-z]*,oceania[a-z]*
+Polynesia,polynesia,polynesia
+Small Island States,small[a-z]* island[a-z]*,small[a-z]* island[a-z]*
+South-eastern Asia,south(\s|-|)east[a-z]*(\s|-|)asia,south(\s|-|)east[a-z]*(\s|-|)asia
+Southern Asia,south[a-z]*(\s|-|)asia,south[a-z]*(\s|-|)asia
+Southern Europe,south[a-z]*(\s|-|)europe,south[a-z]*(\s|-|)europe
+Sub-Saharan Africa,(?:^|\w)ssa,(?:^|\W)ssa
+Sub-Saharan Africa,sub(\s|-|)saharan(\s|-|)africa,sub(\s|-|)saharan(\s|-|)africa
+Sub-Saharan Africa,east[a-z]*(\s|-|)africa,east[a-z]*(\s|-|)africa
+Sub-Saharan Africa,middle(\s|-|)africa,middle(\s|-|)africa
+Sub-Saharan Africa,south[a-z]*(\s|-|)africa,south[a-z]*(\s|-|)africa
+Sub-Saharan Africa,west[a-z]*(\s|-|)africa,west[a-z]*(\s|-|)africa
+Western Asia,west[a-z]*(\s|-|)asia,west[a-z]*(\s|-|)asia
+Western Europe,west[a-z]*(\s|-|)europe,west[a-z]*(\s|-|)europe
