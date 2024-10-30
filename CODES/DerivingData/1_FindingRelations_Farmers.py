@@ -1,38 +1,43 @@
-"""
-Created on Fri Mar 17 08:54:24 2023
 
-@author: sgilclavel
+"""
+##################################
+# 
+# Author: Dr. Sofia Gil-Clavel
+# 
+# Last update: October 30th, 2024.
+# 
+# Description: Functions to process the data used in the article:
+#   Gil-Clavel, S., Wagenblast, T., Akkerman, J., & Filatova, T. (2024, April 26). 
+#   Patterns in Reported Adaptation Constraints: Insights from Peer-Reviewed 
+#   Literature on Flood and Sea-Level Rise. https://doi.org/10.31235/osf.io/3cqvn
+# 
+# Computer Environment:
+#   - Windows 
+#   - Microsoft Windows 10 Enterprise
+#   - Python 3.11
+# 
+# Conda Environment to run the code:
+#   - @SofiaG1L/FloodSLR_CCA/PY_ENVIRONMENT/pytorch_textacy.yml
+#
+# Conda Environments that have to be installed in the computer:
+#   - @SofiaG1L/Database_CCA/PY_ENVIRONMENTS/EXTRA/neuralcoref2.yml
+#   - @SofiaG1L/Database_CCA/PY_ENVIRONMENTS/EXTRA/scispacy.yml
+# 
+##################################
 """
 
 import os as os
 import glob
-from datetime import date
 
-from tqdm import tqdm
-
-# Saving Data into SQL
-# import sqlite3
 import pickle
 import subprocess
-# import pickle5 as pickle
 
 # Data Handling
 import pandas as pd
+from tqdm import tqdm
 tqdm.pandas(desc="my bar!")
 
-# https://pypi.org/project/parallel-pandas/
-from parallel_pandas import ParallelPandas
-ParallelPandas.initialize(n_cpu=5, split_factor=5, disable_pr_bar=True)
-
-import csv
-
-# Transform list representation into list
-import ast 
-
-# Network Analysis
-import networkx as nx
-
-# Basic XXX Libraries
+# Basic Libraries
 import numpy as np
 from collections import Counter
 import random
@@ -40,33 +45,19 @@ import random
 # Processing text
 import nltk as nltk
 import regex as re
-from bs4 import BeautifulSoup
-
-from itertools import product
 
 # Import Text Processing Libraries
 import spacy as spacy
-# Next is to tokenize
-from spacy.tokenizer import Tokenizer
-from spacy.util import compile_prefix_regex,compile_infix_regex, compile_suffix_regex
-# Next is for the pipeline
-# nlp = spacy.load('en_core_web_trf') # Small English language model
-# nlp = spacy.load('en_core_sci_lg')
-# import neuralcoref
-# neuralcoref.add_to_pipe(nlp)
 
 # Plots 
 # from wordcloud import WordCloud
 from matplotlib import pyplot as plt
 from matplotlib import patches
-# import seaborn as sns
-import textwrap as twr
 
 # =============================================================================
 # Functions
 # =============================================================================
-os.chdir("C:\\Dropbox\\TU_Delft\\Projects\\ML_FindingsGrammar\\CODE\\Processing_PDFs\\")
-# os.chdir("C:\\Dropbox\\TU_Delft\\.Final_Deliverables\\4Github\\FUNCTIONS\\")
+os.chdir("@SofiaG1L/NLP4LitRev//MainFunctions/")
 
 import Functions as FN
 import DataViz as DV
@@ -76,8 +67,9 @@ import FindTextPatterns as PTN
 # Openning the data and keeping only SLR and flood related articles
 # =============================================================================
 
-## It used to be DT1.pickle
-with open('C:\\Dropbox\\TU_Delft\\Projects\\DataBase\\PROCESSED\\df2.pickle', 'rb') as handle:
+## Opening the data that results from:
+##      "@SofiaG1L/Database_CCA/CODES/3_ProcessingDataframe.py"
+with open('@SofiaG1L/Database_CCA/PROCESSED/df2.pickle', 'rb') as handle:
     DT1 = pickle.load(handle)
 
 DT1["text2"]=DT1.apply(lambda x: x["dc:title"]+"\n"+x["description"],axis=1)
@@ -98,8 +90,8 @@ DT1["text_clean"]=DT1["text2"].progress_apply(lambda x: FN.CleanText(x))
 # =============================================================================
 # Openning the models
 # =============================================================================
-nlp0 = spacy.load("C:\\Dropbox\\TU_Delft\\.Final_Deliverables\\DATA/3_PROCESSED_DATA/model/model-best/")
-nlp1 = spacy.load("C:\\Dropbox\\TU_Delft\\.Final_Deliverables\\MODELS\\model-best/") # This model is better at finding the nouns. It is en_core_sci_lg updated
+nlp0 = spacy.load("@SofiaG1L/Database_CCA/PROCESSED/MODELS/model-findings")
+nlp1 = spacy.load("@SofiaG1L/Database_CCA/PROCESSED/MODELS/model-nouns") # This model is better at finding the nouns. It is en_core_sci_lg updated
 nlp2 = spacy.load('en_core_web_trf') # This model is better to find markers
 
 ### Detect all sentences
@@ -108,7 +100,7 @@ DT1["sentence"] = DT1["text_clean"].progress_apply(lambda x: list(map(nltk.sent_
 # =============================================================================
 # Extract (Subject, Verb, Object) from the findings
 # =============================================================================
-VERBS_dict=PTN.SignDict()
+VERBS_dict=PTN.SignDict("@SofiaG1L/Database_CCA/Database_CCA/DATA/Verbs.csv")
 
 ### Split sentences into (Subject, Verb, Object)
 DT1["SVAOS"]=DT1.sentence.progress_apply(lambda x: [PTN.FindAllSents(ii, nlp1, nlp2, VERBS_dict) 
@@ -145,11 +137,11 @@ list(DT1[DT1.apply(lambda x: any(x[0].find(W)>-1 or x[2].find(W)>-1 for x in x.S
 # =============================================================================
 
 ## Floods adaption strategies
-ADAPT=pd.read_csv("C:/Dropbox/TU_Delft/Projects/Farmers_CCA/DATA/Farmers_AdaptationOptions2_python.csv",sep = ",")
+ADAPT=pd.read_csv("@SofiaG1L/Farmers_CCA/DATA/Farmers_AdaptationOptions2_python.csv",sep = ",")
 ADAPT=ADAPT.rename(columns={"Adaptation_Strategy":"Adaptation_Name","Adaptation_Strategy_RGX":"Adaptation_REGEX"})
 
 ## Farmers' factors for FACTation
-FACT=pd.read_csv("C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\Factors_Dictionary_python_SGCTF.csv",sep = ",")
+FACT=pd.read_csv("@SofiaG1L/Farmers_CCA/PROCESSED/Factors_Dictionary_python_SGCTF.csv",sep = ",")
 FACT=FACT.rename(columns={"Tatiana_Factor_Strategy":"Factor_Name","Factor_Strategy_RGX":"Factor_REGEX"})
 
 import warnings
@@ -157,10 +149,10 @@ warnings.simplefilter(action='ignore', category=FutureWarning)
 
 DT1["ADAPT"]=DT1.SVAOS.progress_apply(lambda x: FN.LabelMeasures(x,ADAPT,FACT))
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_20240930.pickle', 'wb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_20240930.pickle', 'wb') as handle:
 #     pickle.dump(DT1, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\DT1_20240930.pickle', 'rb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_20240930.pickle', 'rb') as handle:
 #     DT1 = pickle.load(handle)
 
 # =============================================================================
@@ -168,7 +160,7 @@ DT1["ADAPT"]=DT1.SVAOS.progress_apply(lambda x: FN.LabelMeasures(x,ADAPT,FACT))
 # FACT1->FACT2 & FACT2->ADAPT => FACT1->ADAPT
 # =============================================================================
 
-def IfABBCthenAC(SENT):
+def IfABthenBC(SENT):
     N=len(SENT)
     ADD=[]
     for ii in range(N):
@@ -207,10 +199,10 @@ TOBOLD=Counter(DT1_FACTORS.NOUNA.apply(lambda x: x[0] if x[1]=="FACT" else ""))+
     Counter(DT1_FACTORS.NOUNB.apply(lambda x: x[0] if x[1]=="FACT" else ""))
 TOBOLD.most_common()
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_FACTORS_20240930.pickle', 'wb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_FACTORS_20240930.pickle', 'wb') as handle:
 #     pickle.dump(DT1_FACTORS, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_FACTORS_20240930.pickle', 'rb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_FACTORS_20240930.pickle', 'rb') as handle:
 #     DT1_FACTORS = pickle.load(handle)
 
 # =============================================================================
@@ -302,45 +294,42 @@ DB=DB.rename(columns={'dc:identifier':'ID_ART'})
 PlotGraphNet(DB,list(TOBOLD.keys()),FONT=12,COLORStat=None,COLORS=None,
              delta_edge=1.5,edge_sigmoidA=False,q=0.75,L=5,N_M=None,
              edge_sigmoid=False,VERTEX=True)
-# plt.savefig("C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\IMAGES\\NetCat_20240927.svg",
+# plt.savefig("@SofiaG1L/Farmers_CCA/IMAGES/NetCat_20240927.svg",
 #             dpi=300, bbox_inches='tight')
 
 
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_FACTORS_20240913.pickle', 'wb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_FACTORS_20240913.pickle', 'wb') as handle:
 #     pickle.dump(DT1_FACTORS, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-DT1_FACTORS.to_csv("C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_FACTORS_20240913.csv")
+# DT1_FACTORS.to_csv("@SofiaG1L/Farmers_CCA/PROCESSED/DT1_FACTORS_20240913.csv")
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_FACTORS_20240913.pickle', 'rb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_FACTORS_20240913.pickle', 'rb') as handle:
 #     DT1_FACTORS2 = pickle.load(handle)
 
-# with open('C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_20240913.pickle', 'wb') as handle:
+# with open('@SofiaG1L/Farmers_CCA/PROCESSED/DT1_20240913.pickle', 'wb') as handle:
 #     pickle.dump(DT1, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
-DT1.to_csv("C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\DT1_20240913.csv")
+# DT1.to_csv("@SofiaG1L/Farmers_CCA/PROCESSED/DT1_20240913.csv")
 
-
-DT1[['affiliation_Country','StudiedPlace', 'affiliation_ISO2',
-'affiliation_Continent', 'StudiedPlace_ISO2', 'StudiedPlace_Continent']].to_csv('C:/Dropbox/TU_Delft/Projects/Floods_CCA/PROCESSED/DT1wActors.csv')
 
 
 # ### Copying articles for zotero
-# import shutil
+import shutil
 
-# ### Data < August 2022
-# DIR1="C:\\Dropbox\\TU_Delft\\Projects\\ML_FindingsGrammar\\DATA\\PDFs_Clusters\\" # !!!
-# ### Data August 2022 - January 2024
-# DIR2="C:\\Dropbox\\TU_Delft\\Projects\\DataBase\\PROCESSED\\SCOPUS_DATA\\pdfs\\" # !!!
+### Data < August 2022
+DIR1="C:\\Users\\Sofia Gil Clavel\\Dropbox\\TU_Delft\\Projects\\ML_FindingsGrammar\\DATA\\PDFs_Clusters\\" # !!!
+### Data August 2022 - January 2024
+DIR2="C:\\Users\\Sofia Gil Clavel\\Dropbox\\TU_Delft\\Projects\\DataBase\\PROCESSED\\SCOPUS_DATA\\pdfs\\" # !!!
 
-# COPY="C:\\Dropbox\\Articles_24072019\\.Delft\\Farmers\\"
+COPY="C:\\Users\\Sofia Gil Clavel\\Dropbox\\Articles_24072019\\.Delft\\Farmers\\"
 
-# for ii in range(DT1.shape[0]):
-#     if not pd.isna(DT1['clusters2'].iloc[ii]):
-#         DIR11=DIR1+"Cluster_"+str(DT1['clusters2'].iloc[ii])+"\\"
-#         shutil.copyfile(DIR11+DT1['FILE_NAME'].iloc[ii]+".pdf", COPY+DT1['FILE_NAME'].iloc[ii]+".pdf")
-#     else:
-#         shutil.copyfile(DIR2+DT1['FILE_NAME'].iloc[ii]+".pdf", COPY+DT1['FILE_NAME'].iloc[ii]+".pdf")
+for ii in range(DT1.shape[0]):
+    if not pd.isna(DT1['clusters2'].iloc[ii]):
+        DIR11=DIR1+"Cluster_"+str(DT1['clusters2'].iloc[ii])+"\\"
+        shutil.copyfile(DIR11+DT1['FILE_NAME'].iloc[ii]+".pdf", COPY+DT1['FILE_NAME'].iloc[ii]+".pdf")
+    else:
+        shutil.copyfile(DIR2+DT1['FILE_NAME'].iloc[ii]+".pdf", COPY+DT1['FILE_NAME'].iloc[ii]+".pdf")
 
 
 
