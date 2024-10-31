@@ -7,9 +7,9 @@
 # Last update: October 30th, 2024.
 # 
 # Description: Functions to process the data used in the article:
-#   Gil-Clavel, S., Wagenblast, T., Akkerman, J., & Filatova, T. (2024, April 26). 
-#   Patterns in Reported Adaptation Constraints: Insights from Peer-Reviewed 
-#   Literature on Flood and Sea-Level Rise. https://doi.org/10.31235/osf.io/3cqvn
+# Gil-Clavel, S., Wagenblast, T., & Filatova, T. (2023, November 24). Incremental
+# and Transformational Climate Change Adaptation Factors in Agriculture Worldwide:
+# A Natural Language Processing Comparative Analysis. https://doi.org/10.31235/osf.io/3dp5e
 # 
 # Computer Environment:
 #   - Windows 
@@ -115,22 +115,6 @@ DT1=DT1.reset_index(drop=True)
 DT1[DT1.apply(lambda x: any(x[0].find("armed conflict")>-1 for x in x.SVAOS),axis=1)].index
 DT1[DT1.apply(lambda x: any(x[2].find("buy - out")>-1 or x[2].find("buyout")>-1 or 
                             x[2].find("buy out")>-1 for x in x.SVAOS),axis=1)].index
-
-W="older farm"
-
-list(DT1[DT1.apply(lambda x: any(x for x in x.sentence if x.find(W)>-1),axis=1)].\
-     apply(lambda x: [x for x in x.sentence if x.find(W)>-1],axis=1))
-
-list(DT1[DT1.apply(lambda x: any(x[0].find(W)>-1 or x[2].find(W)>-1 for x in x.SVAOS),axis=1)].\
-    apply(lambda x: [x for x in x.SVAOS if x[0].find(W)>-1 or x[2].find(W)>-1],axis=1))
-
-
-# ID_ARTS=np.unique(DB["dc:identifier"])
-# MISSING=[x for x in DT1['dc:identifier'] if x not in ID_ARTS.tolist()]
-# CHECK=DT1[DT1["dc:identifier"].apply(lambda x: True if x in MISSING else False)]
-# CHECK=CHECK.reset_index(drop=True)
-
-# CHECK.ADAPT2.iloc[40]
 
 # =============================================================================
 # Replacing Subjects and Objects with Umbrella Categories
@@ -259,8 +243,7 @@ def PlotGraphNet(DB,TOBOLD,FONT=None,COLORStat=None,COLORS=None,delta_edge=1,
                            delta_edge=delta_edge,resolution=resolution)
     DV.plotNet(G,pos,fontsize=10,VERTEX=VERTEX,MODULARITY=True,
                loc_legend='lower center',TOBOLD=TOBOLD)
-    # plt.savefig("C:\\Dropbox\\TU_Delft\\Projects\\DataBase\\IMAGES\\NetCat_Farmers.png",
-    #             dpi=300, bbox_inches='tight')
+
 
 TOBOLD=Counter(DT1_FACTORS.apply(lambda x:  DV.AddBreakLine(x.source,n=1,breakAfter=4) if x.NOUNA[1]=="FACT" else "",axis=1))+\
     Counter(DT1_FACTORS.apply(lambda x: DV.AddBreakLine(x.target,n=1,breakAfter=4) if x.NOUNB[1]=="FACT" else "",axis=1))
@@ -311,26 +294,6 @@ PlotGraphNet(DB,list(TOBOLD.keys()),FONT=12,COLORStat=None,COLORS=None,
 #     pickle.dump(DT1, handle, protocol=pickle.HIGHEST_PROTOCOL)
 
 # DT1.to_csv("@SofiaG1L/Farmers_CCA/PROCESSED/DT1_20240913.csv")
-
-
-
-# ### Copying articles for zotero
-import shutil
-
-### Data < August 2022
-DIR1="C:\\Users\\Sofia Gil Clavel\\Dropbox\\TU_Delft\\Projects\\ML_FindingsGrammar\\DATA\\PDFs_Clusters\\" # !!!
-### Data August 2022 - January 2024
-DIR2="C:\\Users\\Sofia Gil Clavel\\Dropbox\\TU_Delft\\Projects\\DataBase\\PROCESSED\\SCOPUS_DATA\\pdfs\\" # !!!
-
-COPY="C:\\Users\\Sofia Gil Clavel\\Dropbox\\Articles_24072019\\.Delft\\Farmers\\"
-
-for ii in range(DT1.shape[0]):
-    if not pd.isna(DT1['clusters2'].iloc[ii]):
-        DIR11=DIR1+"Cluster_"+str(DT1['clusters2'].iloc[ii])+"\\"
-        shutil.copyfile(DIR11+DT1['FILE_NAME'].iloc[ii]+".pdf", COPY+DT1['FILE_NAME'].iloc[ii]+".pdf")
-    else:
-        shutil.copyfile(DIR2+DT1['FILE_NAME'].iloc[ii]+".pdf", COPY+DT1['FILE_NAME'].iloc[ii]+".pdf")
-
 
 
 
