@@ -58,7 +58,7 @@ from matplotlib import patches
 # =============================================================================
 # Functions
 # =============================================================================
-os.chdir("@SofiaG1L/NLP4LitRev//MainFunctions/")
+os.chdir("@SofiaG1L/NLP4LitRev/MainFunctions/")
 
 import Functions as FN
 import DataViz as DV
@@ -85,8 +85,9 @@ DT1["text2"]=DT1.apply(lambda x: x["description"]+"\n"+x.analysis+"\n"+x.results
                        x.findings+"\n"+x.conclusions+"\n"+x.discussion,axis=1)
 
 #### Further cleaning the text ####
-
-DT1["text_clean"]=DT1["text2"].progress_apply(lambda x: FN.CleanText(x))
+DIR="@SofiaG1L/NLP4LitRev/MainFunctions/"
+DIR_main="@SofiaG1L/Database_CCA/MainFunctions/"
+DT1["text_clean"]=DT1["text2"].progress_apply(lambda x: FN.CleanText(x,DIR,DIR_main))
 
 # =============================================================================
 # Openning the models
