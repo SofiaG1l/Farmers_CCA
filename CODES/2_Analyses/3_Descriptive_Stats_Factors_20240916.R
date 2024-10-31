@@ -1,9 +1,45 @@
 
-### These values represent the % of times the names were 
-### mentioned in the articles.
+##################################
+# 
+# Author: Dr. Sofia Gil-Clavel
+# 
+# Last update: October 1st, 2024.
+# 
+# Description: Code to generate Figures 4-6 from: 
+#   - Gil-Clavel, S., Wagenblast, T., & Filatova, T. (2023, November 24). Incremental
+#       and Transformational Climate Change Adaptation Factors in Agriculture Worldwide:
+#       A Natural Language Processing Comparative Analysis. 
+#       https://doi.org/10.31235/osf.io/3dp5e
+# 
+# Computer Environment:
+#   - Windows 
+#   - R - 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+#   - Rstudio (2023.12.1)
+#   - Microsoft Windows 10 Enterprise
+# 
+# R Packages:
+#   - tidyverse (2.0.0)
+#   - tidyr (1.3.1)
+#   - ggplot2 (3.5.1)
+#   - ggforce (0.4.2)
+# 
+##################################
+
+# General packages
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+# For parallel set
+library(ggforce)
+
+# Cleaning the environment
+rm(list=ls())
+gc()
 
 #### Using Factors2 Database ####
-DATA0<-FACTORS2
+# FACTORS2 comes from script "2_GLM_Models_AllConnections_20240923.R"
+
+DATA0<-read.csv("@SofiaG1L/Farmers_CCA/PROCESSED/FACTORS2.csv")
 
 DATA0$AdaptationCommonName[DATA0$ADAPT=="Farm Infrastructure"]="Physical Infrastructure Management"
 
@@ -17,7 +53,7 @@ N_Arts_STD<-data.frame(N_Arts_STD)
 row.names(N_Arts_STD)<-N_Arts_STD$STD
 
 
-FA<-read.csv("C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\Factors_Dictionary_python_SGCTF.csv")
+FA<-read.csv("@SofiaG1L/Farmers_CCA/PROCESSED/Factors_Dictionary_python_SGCTF.csv")
 
 # Shorting some levels
 DATA0$AdaptationName=factor(DATA0$ADAPT)
@@ -62,7 +98,7 @@ DATA0%>%
         strip.text = element_text(colour = 'black'))+
   labs(fill="Adaptation Type:")
 
-# ggsave("IMAGES/AdaptatioType_20240927.png",
+# ggsave("@SofiaG1L/Farmers_CCA/IMAGES/AdaptationType_20240927.png",
 #        units = "cm",height = 20,width =30)
 
 #### Factors Descriptive Statistics ####
@@ -83,8 +119,6 @@ DATA<-DATA0%>%
   select(-n)
 
 #### Parallel Sets ####
-
-library(ggforce)
 
 # Function from:
 # https://stackoverflow.com/questions/74284095/in-ggforce-geom-parallel-sets-labels-how-to-add-more-information-to-the-bar-l?rq=1
@@ -134,10 +168,6 @@ summary(data2)
 
 data2<-gather_set_data(data2, 3:6)
 
-# data2$TypeAdaptation=factor(data2$TypeAdaptation,
-#                             levels = c("0","1"),
-#                             labels = c("Incremental","Transformational"))
-
 data2$x=factor(data2$x,
                levels = c(3,4,5,6),
                labels = c("Region","Factor","Adaptation\nMeasure","Adaptation\nType"))
@@ -166,7 +196,7 @@ data2%>%
         panel.background = element_blank())+
   guides(fill=guide_legend(title = "Adaptation Type",nrow = 1))
 
-# ggsave("IMAGES/ParallelSets_20240927.png",
+# ggsave("@SofiaG1L/Farmers_CCA/IMAGES/ParallelSets_20240927.png",
 #        width = 30,height = 20,units = "cm")
 
 ### Type of Factor ####
@@ -194,11 +224,10 @@ TypeADAPT=DATA0%>%ungroup()%>%
   select(-TypeAdaptation,-n,-Total,-Count)%>%
   mutate(Factor="Transformational",Tatiana_Category="Type of Adaptation")
 
-
-
 ### This calculation gives the percentage of times the factors appeared
 ### relative to the number of articles and regions
 pers=DATA0%>%
+  filter(STD!="")%>%
   select(-AdaptationName,-Country,-ADAPT,-AdaptationCommonName,-TypeAdaptation)%>%
   distinct()%>%
   gather(key="Factor",value="value",-ID_ART,-STD)%>%
@@ -324,40 +353,14 @@ pers%>%
             nudge_y=-0.01,nudge_x = 0.05,size=5)+
   coord_flip()
 
-ggsave("IMAGES/FactorsBoxPlots_20240927.png",
-       units = "cm",height = 30,width =50,dpi = 300)
+# ggsave("@SofiaG1L/Farmers_CCA/IMAGES/FactorsBoxPlots_20240927.png",
+#        units = "cm",height = 30,width =50,dpi = 300)
 
-# write.csv(pers%>%spread(STD,per),"PROCESSED/FactorsByRegion_20240927.csv")
+# This is table D2:
+# write.csv(pers%>%spread(STD,per),
+#           "@SofiaG1L/Farmers_CCA/PROCESSED/FactorsByRegion_20240927.csv")
 
 
-### Checking articles country 
-
-DATA0%>%
-  select(ID_ART,Country)%>%
-  mutate(len=nchar(Country))%>%
-  select(-Country)%>%
-  distinct()%>%
-  mutate(len2=ifelse(len==2,"ISO2","No"))%>%
-  select(-len)%>%
-  group_by(len2)%>%
-  count()
-
-### Checking articles Measures
-ADAPTS=c("Climate Change Adaptation",
-        "Climate Change Incremental Adaptation",
-        "Climate Change Transformational Adaptation",
-        "Climate Change Maladaptation")
-
-BLA=DATA0%>%
-  ungroup()%>%
-  select(ID_ART,ADAPT)%>%
-  mutate(Type=ifelse(ADAPT%in%ADAPTS,"General","No"),
-         n=1)%>%
-  select(-ADAPT)%>%
-  distinct()%>%
-  spread(Type,n,fill = 0)
-
-sum(BLA$No)
 
 
 

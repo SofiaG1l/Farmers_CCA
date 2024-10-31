@@ -1,38 +1,58 @@
 
+##################################
+# 
+# Author: Dr. Sofia Gil-Clavel
+# 
+# Last update: October 1st, 2024.
+# 
+# Description: Code to perform the statistical analyses in:
+#   - Gil-Clavel, S., Wagenblast, T., & Filatova, T. (2023, November 24). Incremental
+#       and Transformational Climate Change Adaptation Factors in Agriculture Worldwide:
+#       A Natural Language Processing Comparative Analysis. 
+#       https://doi.org/10.31235/osf.io/3dp5e
+# 
+# Computer Environment:
+#   - Windows 
+#   - R - 4.3.3 (2024-02-29 ucrt) -- "Angel Food Cake"
+#   - Rstudio (2023.12.1)
+#   - Microsoft Windows 10 Enterprise
+# 
+# R Packages:
+#   - tidyverse (2.0.0)
+#   - tidyr (1.3.1)
+#   - ggplot2 (3.5.1)
+# 
+##################################
+
 library(tidyverse)
 library(tidyr)
 library(ggplot2)
-library(ggridges)
-library(ggExtra)
-# Following packages are for maps
-library(sf)
-library(tmap)
-library(cowplot)
-# Following packages are for networks
-library(igraph)       # To create a Network Object.
-library(ggraph)       # To create the network visualization.
-# Color blind pallet
-library(rcartocolor)
-# display_carto_all(colorblind_friendly = TRUE)
 
 options(scipen=999)
 
+# Cleaning the environment
 rm(list=ls())
 gc()
 
 #### Opening Data ####
+#   "2_Farmers_NetworkData.csv" stored in DANS:
+#   Gil-Clavel, Sofia; Filatova, Tatiana, 2024, "Interrelated Climate Change 
+#   Adaptation Measures and Factors", https://doi.org/10.17026/SS/PYZCXK, 
+#   DANS Data Station Social Sciences and Humanities, DRAFT VERSION; 
+#   2_Farmers_NetworkData.csv [fileName] 
 
-FACTORS=read.csv("PROCESSED/DT1_FACTORS_20240913.csv")
-FACTORS=FACTORS%>%filter(period=="<Aug,2022")
+FACTORS=read.csv("2_Farmers_NetworkData.csv")
 
-VARIABLES=read.csv("PROCESSED/Factors_Dictionary_python_SGCTF.csv")
-ADAPT=read.csv("C:/Dropbox/TU_Delft/Projects/Farmers_CCA/DATA/Farmers_AdaptationOptions2_python.csv")
-ADAPT=ADAPT[,-5]
-ADAPT=distinct(ADAPT)
-ADAPT=ADAPT[-c(21,35,54),]
+#   "2_Farmers_AdaptationDictionary.csv" stored in DANS:
+#   Gil-Clavel, Sofia; Filatova, Tatiana, 2024, "Interrelated Climate Change 
+#   Adaptation Measures and Factors", https://doi.org/10.17026/SS/PYZCXK, 
+#   DANS Data Station Social Sciences and Humanities, DRAFT VERSION; 
+#   2_Farmers_AdaptationDictionary.csv [fileName] 
+
+ADAPT=read.csv("2_Farmers_AdaptationDictionary.csv")
 row.names(ADAPT)=ADAPT$Adaptation_Strategy
 
-CTY_NAMES=read.csv("DATA/CountryByRegion.csv")
+CTY_NAMES=read.csv("@SofiaG1L/Farmers_CCA/DATA/CountryByRegion.csv")
 CTY_NAMES$alpha.2[is.na(CTY_NAMES$alpha.2)]="NA"
 row.names(CTY_NAMES)=CTY_NAMES$alpha.2
 
@@ -52,7 +72,7 @@ REGS<-c("AF"="Africa","AS"="Asia","EU"="Europe",
         "asia"="Asia","europe"="Europe","africa"="Africa",
         "Oceania"="Oceania","oceania"="Oceania",
         "Northern America"="N.America")
-REGS
+
 #### Cleaning Countries Variables
 ### Researcher Affiliation ###
 
@@ -128,9 +148,6 @@ for(II in 1:N){
   }
 }
 
-# Checking
-FACTORS=FACTORS%>%
-  mutate(STD=ifelse(STD!="",STD,AFF))
 
 ### Article Identifier into number
 
@@ -140,7 +157,7 @@ row.names(IDS)=IDS$ID_ART
 
 FACTORS$ID_ART=IDS[FACTORS$dc.identifier,"NUMBER"]
 
-#### Keeping only the MEASURE - FACTOR connections ####
+#### Keeping all connections ####
 
 A=FACTORS[,c("ID_ART","STD","source","source_type")]
 colnames(A)[3:4]=c("node","node_type")
@@ -184,6 +201,8 @@ FACTORS2<-FACTORS2%>%
   distinct()
 
 FACTORS2=FACTORS2[FACTORS2$STD!="NA",]
+
+# write.csv(FACTORS2,"@SofiaG1L/Farmers_CCA/PROCESSED/FACTORS2.csv")
 
 ### CommonName
 
@@ -268,11 +287,6 @@ FACTORS3$STD <- relevel(FACTORS3$STD, ref = "Europe")
 FACTORS3[,c(6:25)] <- lapply(FACTORS3[,c(6:25)], factor)
 FACTORS3=as.data.frame(FACTORS3)
 summary(FACTORS3)
-
-### Saving Data ###
-
-write.csv(FACTORS3,
-          "C:\\Dropbox\\TU_Delft\\Projects\\Farmers_CCA\\PROCESSED\\FarmersDataFrame.csv")
 
 #### Labels and Levels ####
 
@@ -410,8 +424,8 @@ CONF%>%
   guides(color=guide_legend("Likelihood"))+
   labs(y = "Odds Ratio")
 
-ggsave("IMAGES//RegionsDiff_AllConex.png",dpi = 600,
-       width = 7.79*1.9,height = 4.03*1.8,units = "in")
+# ggsave("@SofiaG1L\Farmers_CCA\IMAGES\RegionsDiff.png",dpi = 600,
+#        width = 7.79*1.9,height = 4.03*1.8,units = "in")
 
 #### glm ####
 fit<-glm(TypeAdaptation~., #+Psychological,
@@ -499,5 +513,7 @@ CI%>%
   guides(color=guide_legend("Likelihood"))+
   labs(y = "Odds Ratio")
 
-ggsave("IMAGES/TransIncrDiff_AllConex.png",dpi = 600,
-       width = 15,height = 15,units = "cm")
+# ggsave("@SofiaG1L\Farmers_CCA\IMAGES\TransIncrDiff.png",dpi = 600,
+#        width = 7.79*1.9,height = 4.03*1.8,units = "in")
+
+

@@ -18,7 +18,7 @@
 #   - Python 3.11
 # 
 # Conda Environment to run the code:
-#   - @SofiaG1L/FloodSLR_CCA/PY_ENVIRONMENT/pytorch_textacy.yml
+#   - @SofiaG1L/Farmers_CCA/PY_ENVIRONMENT/pytorch_textacy.yml
 #
 # Conda Environments that have to be installed in the computer:
 #   - @SofiaG1L/Database_CCA/PY_ENVIRONMENTS/EXTRA/neuralcoref2.yml
